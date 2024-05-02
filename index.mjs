@@ -1,9 +1,13 @@
 import fs from "node:fs/promises";
 
-fs.stat('user', (err, stat) => {
-    if(err) {
-        console.log(err);
-    } else {
-        console.log(stat.isDirectory());
+const example = async () => {
+    try {
+        const stats = await fs.stat('user/test.txt');
+        console.log(stats.isFile());
+        console.log(stats.isDirectory());
+        console.log(stats.size);
+    } catch (error) {
+        console.log(error);
     }
-})
+}
+example();
