@@ -1,9 +1,4 @@
 import fs from "node:fs";
 
-fs.readFile("user/test.txt", 'utf8', (err, data) => {
-  if (err) {
-    console.log(err.message);
-  } else {
-    console.log(data);
-  }
-});
+const data = fs.readFileSync('user/test.txt', 'utf8');
+console.log(data);
