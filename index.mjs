@@ -1,13 +1,9 @@
-import fs from "node:fs/promises";
+import fs from "node:fs";
 
-const example = async () => {
-    try {
-        const stats = await fs.stat('user/test.txt');
-        console.log(stats.isFile());
-        console.log(stats.isDirectory());
-        console.log(stats.size);
-    } catch (error) {
-        console.log(error);
-    }
-}
-example();
+fs.readFile("user/test.txt", 'utf8', (err, data) => {
+  if (err) {
+    console.log(err.message);
+  } else {
+    console.log(data);
+  }
+});
